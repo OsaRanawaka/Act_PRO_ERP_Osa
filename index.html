@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional ERP System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>ERP Admin</h2>
+        <ul>
+            <li>Dashboard</li>
+            <li>Inventory</li>
+            <li>Sales</li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <header>
+            <h1>Inventory Management</h1>
+        </header>
+        
+        <section class="form-section">
+            <form action="/add" method="POST">
+                <input type="text" name="item" placeholder="Item Name" required>
+                <input type="number" name="qty" placeholder="Quantity" required>
+                <input type="number" step="0.01" name="price" placeholder="Price" required>
+                <button type="submit">Add Stock</button>
+            </form>
+        </section>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Item Name</th>
+                    <th>Stock Qty</th>
+                    <th>Unit Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item[0] }}</td>
+                    <td>{{ item[1] }}</td>
+                    <td>{{ item[2] }}</td>
+                    <td>Rs. {{ item[3] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
