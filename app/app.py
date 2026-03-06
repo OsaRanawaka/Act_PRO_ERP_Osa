@@ -34,6 +34,10 @@ def add_item():
     conn.close()
     return redirect('/')
 
-if __name__ == '__main__':
-    init_db()
-    app.run(debug=True)
+i# අන්තිමට තියෙන app.run() එක අයින් කරලා මේක විතරක් තියන්න
+app = Flask(__name__)
+
+# ... (ඔයාගේ අනිත් codes) ...
+
+# අන්තිමට මේක විතරක් දාන්න (Vercel එකට මේක ඕනේ)
+app = app
